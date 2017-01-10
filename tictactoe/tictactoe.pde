@@ -1,6 +1,6 @@
-int[][] board = { {0, 0, 0},
-                  {0, 0, 0},
-                  {0, 0, 0} };
+int[][] board = { {1, 0, 0},
+                  {0, 1, 0},
+                  {0, 2, 2} };
 void setup () {
   size(400,400);
   background(255);
@@ -25,9 +25,9 @@ void draw () {
       int y = j*height/3 + height/6;
       textSize(75);
       textAlign(CENTER, CENTER);
-      text("X",x,y);
       fill(0);
-      println(x,y,'\n');
+      if (board[i][j] == 1) text("x",x,y);
+      else if (board[i][j] == 2) text("o",x,y);
     }
   }
 }
