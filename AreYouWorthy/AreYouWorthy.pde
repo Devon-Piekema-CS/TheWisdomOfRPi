@@ -1,9 +1,44 @@
-int[][] board = { {1, 0, 0},
-                  {0, 1, 0},
-                  {0, 2, 2} };
+
+// Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with user marker (x) and 2=cell with computer marker (o)
+int[][] board = { {0, 0, 0},
+                  {0, 0, 0},
+                  {0, 0, 0} };
 int computer = 0;
 int user = 1;
 int whoseTurn = user;
+boolean overEmptyCell = false;
+
+// Dimensions of canvas
+int w = 400;
+int h = 400;
+
+// Coordinates of markers for all cells
+int topleft_x = 0*w/3 + w/6;
+int topleft_y = 0*h/3 + h/6;
+int topcentre_x = 1*w/3 + w/6;
+int topcentre_y = 0*h/3 + h/6;
+int topright_x = 2*w/3 + w/6;
+int topright_y = 0*h/3 + h/6;
+
+int centreleft_x = 0*w/3 + w/6;
+int centreleft_y = 1*h/3 + h/6;
+int middle_x = 1*w/3 + w/6;
+int middle_y = 1*h/3 + h/6;
+int centreright_x = 2*w/3 + w/6;
+int centreright_y = 1*h/3 + h/6;
+
+int bottomleft_x = 0*w/3 + w/6;
+int bottomleft_y = 2*h/3 + h/6;
+int bottomcentre_x = 1*w/3 + w/6;
+int bottomcentre_y = 2*h/3 + h/6;
+int bottomright_x = 2*w/3 + w/6;
+int bottomright_y = 2*h/3 + h/6;
+
+int dx = h/6;
+int dy = h/6;
+
+int x;
+int y;
 
 void setup () {
   size(400,400);
@@ -49,7 +84,36 @@ void draw () {
     // If game over declare winner
   } else if (whoseTurn == user) {
     // "Listen" for mouse press, check that slot is avaliable before placing marker
+    
+    println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,topleft_x-dx,"-",topleft_x+dx,";", topleft_y-dy,"-",topleft_y+dy,"\n");
+    
+    // Test if the cursor is over top left empty cell
+    if (board[0][0] == 0 && mouseX > topleft_x-dx && mouseX < topleft_x+dx && mouseY > topleft_y-dy && mouseY < topleft_y+dy) { //<>//
+      println("Top Left\n");
+      overEmptyCell = true;   
+      x = 0;
+      y = 0;
+    } else {
+      overEmptyCell = false;
+    }
 
-    // If game over declare winner}
+    // Test if the cursor is over top centre empty cell
+    if (board[1][0] == 0 && mouseX > topcentre_x-dx && mouseX < topcentre_x+dx && mouseY > topcentre_y-dy && mouseY < topcentre_y+dy) {
+      overEmptyCell = true;   
+      x = 1;
+      y = 0;
+    } else {
+      overEmptyCell = false;
+    }
+
+    // If game over declare winner
+  }
   
+}
+
+void mousePressed() {
+  if(overEmptyCell) { 
+    println("************************************************Mouse pressed\n");
+    board[x][y] = 1;
+  } 
 }
