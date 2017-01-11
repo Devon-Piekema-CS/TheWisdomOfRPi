@@ -12,31 +12,14 @@ boolean overEmptyCell = false;
 int w = 400;
 int h = 400;
 
-// Coordinates of markers for all cells
-int topleft_x = 0*w/3 + w/6;
-int topleft_y = 0*h/3 + h/6;
-int topcentre_x = 1*w/3 + w/6;
-int topcentre_y = 0*h/3 + h/6;
-int topright_x = 2*w/3 + w/6;
-int topright_y = 0*h/3 + h/6;
+float L = w/3; // x-coord of left grid line
+float R = L*2; // x-coord of right grid line
+float T = h/3; // y-coord of top grid line
+float B = T*2; // y-coord of bottom grid line
+float dx = L/2; // x-offset to grid cell centre
+float dy = T/2; // y-offset to grid cell centre
 
-int centreleft_x = 0*w/3 + w/6;
-int centreleft_y = 1*h/3 + h/6;
-int middle_x = 1*w/3 + w/6;
-int middle_y = 1*h/3 + h/6;
-int centreright_x = 2*w/3 + w/6;
-int centreright_y = 1*h/3 + h/6;
-
-int bottomleft_x = 0*w/3 + w/6;
-int bottomleft_y = 2*h/3 + h/6;
-int bottomcentre_x = 1*w/3 + w/6;
-int bottomcentre_y = 2*h/3 + h/6;
-int bottomright_x = 2*w/3 + w/6;
-int bottomright_y = 2*h/3 + h/6;
-
-int dx = h/6;
-int dy = h/6;
-
+// Variables for indexing the board array
 int x;
 int y;
 
@@ -50,12 +33,10 @@ void draw () {
   
   // Draw grid
   stroke(0);
-  line(width/3,0,width/3,height);
-  line(2*width/3,0,2*width/3,height);  
-  line(3*width/3,0,3*width/3,height);
-  line(0, height/3, width, height/3);  
-  line(0, 2*height/3, width, 2*height/3); 
-  line(0, 3*height/3, width, 3*height/3);  
+  line(L,0,L,h); // Left vetical line
+  line(R,0,R,h); // Right vertical line
+  line(0,T,w,T); // Top horizontal line
+  line(0,B,w,B); // Bottom horizintal line
   
   // Draw markers
   for (int i = 0; i < 3; i++) {
@@ -87,16 +68,85 @@ void draw () {
     
     println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,topleft_x-dx,"-",topleft_x+dx,";", topleft_y-dy,"-",topleft_y+dy,"\n");
     
-    // Test if the cursor is over top left empty cell
-    if (board[0][0] == 0 && mouseX > topleft_x-dx && mouseX < topleft_x+dx && mouseY > topleft_y-dy && mouseY < topleft_y+dy) { //<>//
-      println("Top Left\n");
-      overEmptyCell = true;   
-      x = 0;
-      y = 0;
-    } else {
-      overEmptyCell = false;
-    }
+    // Find which cell the cursor is over and if the cell is empty
+    if (mouseX > 0 && mouseX < L && mouseY > 0 && mouseY < T) { //<>//
+      if (board[0][0] == 0) {
+        overEmptyCell = true;   
+        x = 0;
+        y = 0;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > L 0 && mouseX < R && mouseY > 0 && mouseY < T) {
+      if (board[1][0] == 0) {
+        overEmptyCell = true;   
+        x = 1;
+        y = 0;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > R 0 && mouseX < w && mouseY > 0 && mouseY < T) {
+      if (board[2][0] == 0) {
+        overEmptyCell = true;   
+        x = 2;
+        y = 0;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > 0 && mouseX < L && mouseY > T && mouseY < B) {
+      if (board[0][1] == 0) {
+        overEmptyCell = true;   
+        x = 0;
+        y = 1;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > L 0 && mouseX < R && mouseY > T && mouseY < B) {
+      if (board[1][1] == 0) {
+        overEmptyCell = true;   
+        x = 1;
+        y = 1;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > R 0 && mouseX < w && mouseY > T && mouseY < B) {
+      if (board[2][1] == 0) {
+        overEmptyCell = true;   
+        x = 2;
+        y = 1;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > 0 && mouseX < L && mouseY > B && mouseY < h) {
+      if (board[0][2] == 0) {
+        overEmptyCell = true;   
+        x = 0;
+        y = 2;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > L 0 && mouseX < R && mouseY > B && mouseY < h) {
+      if (board[1][2] == 0) {
+        overEmptyCell = true;   
+        x = 1;
+        y = 2;
+      } else {
+        overEmptyCell = false;
+      }
+    } else if (mouseX > R 0 && mouseX < w && mouseY > B && mouseY < h) {
+      if (board[2][2] == 0) {
+        overEmptyCell = true;   
+        x = 2;
+        y = 2;
+      } else {
+        overEmptyCell = false;
+      }
 
+      
+      
+      
+      
+      
     // Test if the cursor is over top centre empty cell
     if (board[1][0] == 0 && mouseX > topcentre_x-dx && mouseX < topcentre_x+dx && mouseY > topcentre_y-dy && mouseY < topcentre_y+dy) {
       overEmptyCell = true;   
