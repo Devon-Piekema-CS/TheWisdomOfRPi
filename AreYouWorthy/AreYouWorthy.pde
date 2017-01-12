@@ -52,99 +52,11 @@ void draw () {
   }
   
   if (whoseTurn == computer) {
-    println("Computer's turn!\n");
-    // 1. Check if winning move is possible (have two markers along one of the eight dimensions
-    
-    // 2. Check if winning move is possible for opponent (if it is -> block)
-    
-    // 3. Check if one dimension has an x marker and two empty spots
-    
-    // 4. Check if centre is avaliable
-    
-    // 5. Place marker randomly
-    
-    whoseTurn = user; // The user is next up
+    computerPlay();
+
   } else if (whoseTurn == user) {
-    
-    // "Listen" for mouse press, check that slot is avaliable before placing marker
-    
-    // Find which cell the cursor is over and if the cell is empty
-    if (mouseX > 0 && mouseX < L && mouseY > 0 && mouseY < T) { //<>//
-      if (board[0][0] == 0) {
-        overEmptyCell = true;   
-        x = 0;
-        y = 0;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > 0 && mouseX < R && mouseY > 0 && mouseY < T) {
-      if (board[1][0] == 0) {
-        overEmptyCell = true;   
-        x = 1;
-        y = 0;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > R && mouseX < w && mouseY > 0 && mouseY < T) {
-      if (board[2][0] == 0) {
-        overEmptyCell = true;   
-        x = 2;
-        y = 0;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > 0 && mouseX < L && mouseY > T && mouseY < B) {
-      if (board[0][1] == 0) {
-        overEmptyCell = true;   
-        x = 0;
-        y = 1;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > L  && mouseX < R && mouseY > T && mouseY < B) {
-      if (board[1][1] == 0) {
-        overEmptyCell = true;   
-        x = 1;
-        y = 1;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > R  && mouseX < w && mouseY > T && mouseY < B) {
-      if (board[2][1] == 0) {
-        overEmptyCell = true;   
-        x = 2;
-        y = 1;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > 0 && mouseX < L && mouseY > B && mouseY < h) {
-      if (board[0][2] == 0) {
-        overEmptyCell = true;   
-        x = 0;
-        y = 2;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > L && mouseX < R && mouseY > B && mouseY < h) {
-      if (board[1][2] == 0) {
-        overEmptyCell = true;   
-        x = 1;
-        y = 2;
-      } else {
-        overEmptyCell = false;
-      }
-    } else if (mouseX > R && mouseX < w && mouseY > B && mouseY < h) {
-      if (board[2][2] == 0) {
-        overEmptyCell = true;   
-        x = 2;
-        y = 2;
-      } else {
-        overEmptyCell = false;
-      } // if
-    }
-    whoseTurn = computer; // The computer is next up
-  // println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,"\n");    
-  }
+    userPlay();
+  } //<>//
   // Check if game is over or if we should continue playing. 
   // Game is over if:
   // - Either the user or the computer has three in a row
