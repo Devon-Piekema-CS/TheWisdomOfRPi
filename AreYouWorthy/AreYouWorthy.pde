@@ -66,7 +66,7 @@ void draw () {
   } else if (whoseTurn == user) {
     // "Listen" for mouse press, check that slot is avaliable before placing marker
     
-    println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,topleft_x-dx,"-",topleft_x+dx,";", topleft_y-dy,"-",topleft_y+dy,"\n");
+//    println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,topleft_x-dx,"-",topleft_x+dx,";", topleft_y-dy,"-",topleft_y+dy,"\n");
     
     // Find which cell the cursor is over and if the cell is empty
     if (mouseX > 0 && mouseX < L && mouseY > 0 && mouseY < T) { //<>//
@@ -77,7 +77,7 @@ void draw () {
       } else {
         overEmptyCell = false;
       }
-    } else if (mouseX > L 0 && mouseX < R && mouseY > 0 && mouseY < T) {
+    } else if (mouseX > 0 && mouseX < R && mouseY > 0 && mouseY < T) {
       if (board[1][0] == 0) {
         overEmptyCell = true;   
         x = 1;
@@ -85,7 +85,7 @@ void draw () {
       } else {
         overEmptyCell = false;
       }
-    } else if (mouseX > R 0 && mouseX < w && mouseY > 0 && mouseY < T) {
+    } else if (mouseX > R && mouseX < w && mouseY > 0 && mouseY < T) {
       if (board[2][0] == 0) {
         overEmptyCell = true;   
         x = 2;
@@ -101,7 +101,7 @@ void draw () {
       } else {
         overEmptyCell = false;
       }
-    } else if (mouseX > L 0 && mouseX < R && mouseY > T && mouseY < B) {
+    } else if (mouseX > L  && mouseX < R && mouseY > T && mouseY < B) {
       if (board[1][1] == 0) {
         overEmptyCell = true;   
         x = 1;
@@ -109,7 +109,7 @@ void draw () {
       } else {
         overEmptyCell = false;
       }
-    } else if (mouseX > R 0 && mouseX < w && mouseY > T && mouseY < B) {
+    } else if (mouseX > R  && mouseX < w && mouseY > T && mouseY < B) {
       if (board[2][1] == 0) {
         overEmptyCell = true;   
         x = 2;
@@ -125,7 +125,7 @@ void draw () {
       } else {
         overEmptyCell = false;
       }
-    } else if (mouseX > L 0 && mouseX < R && mouseY > B && mouseY < h) {
+    } else if (mouseX > L && mouseX < R && mouseY > B && mouseY < h) {
       if (board[1][2] == 0) {
         overEmptyCell = true;   
         x = 1;
@@ -133,29 +133,15 @@ void draw () {
       } else {
         overEmptyCell = false;
       }
-    } else if (mouseX > R 0 && mouseX < w && mouseY > B && mouseY < h) {
+    } else if (mouseX > R && mouseX < w && mouseY > B && mouseY < h) {
       if (board[2][2] == 0) {
         overEmptyCell = true;   
         x = 2;
         y = 2;
       } else {
         overEmptyCell = false;
-      }
-
-      
-      
-      
-      
-      
-    // Test if the cursor is over top centre empty cell
-    if (board[1][0] == 0 && mouseX > topcentre_x-dx && mouseX < topcentre_x+dx && mouseY > topcentre_y-dy && mouseY < topcentre_y+dy) {
-      overEmptyCell = true;   
-      x = 1;
-      y = 0;
-    } else {
-      overEmptyCell = false;
+      } // if
     }
-
     // If game over declare winner
   }
   
