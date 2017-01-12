@@ -52,6 +52,7 @@ void draw () {
   }
   
   if (whoseTurn == computer) {
+    println("Computer's turn!\n");
     // 1. Check if winning move is possible (have two markers along one of the eight dimensions
     
     // 2. Check if winning move is possible for opponent (if it is -> block)
@@ -62,8 +63,9 @@ void draw () {
     
     // 5. Place marker randomly
     
-    // If game over declare winner
+    whoseTurn = user; // The user is next up
   } else if (whoseTurn == user) {
+    
     // "Listen" for mouse press, check that slot is avaliable before placing marker
     
     // Find which cell the cursor is over and if the cell is empty
@@ -140,9 +142,10 @@ void draw () {
         overEmptyCell = false;
       } // if
     }
+    whoseTurn = computer; // The computer is next up
   // println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,"\n");    
   }
-  // Check if game is over or if we shoukld continue playing. 
+  // Check if game is over or if we should continue playing. 
   // Game is over if:
   // - Either the user or the computer has three in a row
   // - All the cells have markers in them but nobody has three in a row (=draw)
@@ -151,7 +154,8 @@ void draw () {
 
 void mousePressed() {
   if(overEmptyCell) { 
-    println("************************************************Mouse pressed\n");
+    //println("************************************************Mouse pressed\n");
     board[x][y] = 1;
+    println("User's turn!\n");
   } 
 }
