@@ -66,8 +66,6 @@ void draw () {
   } else if (whoseTurn == user) {
     // "Listen" for mouse press, check that slot is avaliable before placing marker
     
-//    println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,topleft_x-dx,"-",topleft_x+dx,";", topleft_y-dy,"-",topleft_y+dy,"\n");
-    
     // Find which cell the cursor is over and if the cell is empty
     if (mouseX > 0 && mouseX < L && mouseY > 0 && mouseY < T) { //<>//
       if (board[0][0] == 0) {
@@ -142,8 +140,12 @@ void draw () {
         overEmptyCell = false;
       } // if
     }
-    // If game over declare winner
+  // println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,"\n");    
   }
+  // Check if game is over or if we shoukld continue playing. 
+  // Game is over if:
+  // - Either the user or the computer has three in a row
+  // - All the cells have markers in them but nobody has three in a row (=draw)
   
 }
 
