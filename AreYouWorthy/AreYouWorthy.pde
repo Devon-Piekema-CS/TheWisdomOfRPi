@@ -7,6 +7,8 @@ int computer = 0;
 int user = 1;
 int whoseTurn = user;
 boolean overEmptyCell = false;
+boolean gameOver = false;
+int winner;
 
 // Dimensions of canvas
 int w = 400;
@@ -51,10 +53,16 @@ void draw () {
     }
   }
   
-  if (whoseTurn == computer) {
+  if (whoseTurn == computer && !gameOver) {
     computerPlay();
 
-  } else if (whoseTurn == user) {
+   // Check if game is over or if we should continue playing. 
+   // Game is over if:
+   // - Either the user or the computer has three in a row
+   // - All the cells have markers in them but nobody has three in a row (=draw)
+
+
+  } else if (whoseTurn == user && !gameOver) {
     userPlay();
   } //<>//
   // Check if game is over or if we should continue playing. 
@@ -62,12 +70,4 @@ void draw () {
   // - Either the user or the computer has three in a row
   // - All the cells have markers in them but nobody has three in a row (=draw)
   
-}
-
-void mousePressed() {
-  if(overEmptyCell) { 
-    //println("************************************************Mouse pressed\n");
-    board[x][y] = 1;
-    println("User's turn!\n");
-  } 
 }

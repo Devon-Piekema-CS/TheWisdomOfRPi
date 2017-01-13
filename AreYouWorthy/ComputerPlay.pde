@@ -5,6 +5,7 @@ void computerPlay() {
     
     if (!win) {
       // 2. Check if winning move is possible for opponent (if it is -> block)
+      whoseTurn = user; // The user is next up
       
       // 3. Check if one dimension has an x marker and two empty spots
     
@@ -12,6 +13,5 @@ void computerPlay() {
     
       // 5. Place marker randomly
     
-      whoseTurn = user; // The user is next up
     }
 }

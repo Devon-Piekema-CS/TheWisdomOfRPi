@@ -1,5 +1,4 @@
 void userPlay() {
-      // "Listen" for mouse press, check that slot is avaliable before placing marker
     
     // Find which cell the cursor is over and if the cell is empty
     if (mouseX > 0 && mouseX < L && mouseY > 0 && mouseY < T) {
@@ -75,7 +74,14 @@ void userPlay() {
         overEmptyCell = false;
       } // if
     }
-    whoseTurn = computer; // The computer is next up
   // println("whose turn:",whoseTurn,"board[0][0]:",board[0][0]," x:",mouseX," y:", mouseY,"\n");    
+}
 
+void mousePressed() {
+  if(overEmptyCell && whoseTurn == user && !gameOver) { 
+    //println("************************************************Mouse pressed\n");
+    board[x][y] = 1;
+    whoseTurn = computer; // The computer is next up
+    println("User's turn!\n");
+  } 
 }
