@@ -12,7 +12,7 @@ void computerPlay() {
     // 4. Check if centre is avaliable
     if (whoseTurn == computer) {
       if (board[1][1] == 0) {
-        board[1][1] == 2;
+        board[1][1] = 2;
         whoseTurn = user;
       }
     }
@@ -38,7 +38,7 @@ void computerPlay() {
           for (int j = 0; j < 3; j++) {
             if (board[i][j] == 0) m++;
             if (n == m) {
-              (board[i][j] == 2);
+              board[i][j] = 2;
               whoseTurn = user;
             }
           }
