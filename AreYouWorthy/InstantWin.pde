@@ -7,7 +7,7 @@
 // -            o            o
 
 void instantWin() {
-  
+
   // Loop across board from left to right and check the three possible options 
   for (int i = 0; i < 3; i = i+1) {    
     // Option 1
@@ -26,7 +26,7 @@ void instantWin() {
       win = true;
     }
   }  
-  
+
   // Loop across board from top to bottom and check the three possible options 
   for (int i = 0; i < 3; i = i+1) {    
     // Option 1
@@ -45,7 +45,7 @@ void instantWin() {
       win = true;
     }
   }  
-  
+
   // Left diagonal
   //
   // Option 1
@@ -63,7 +63,7 @@ void instantWin() {
     board[0][0] = 2;
     win = true;
   }
-  
+
   // Right diagonal
   //
   // Option 1
