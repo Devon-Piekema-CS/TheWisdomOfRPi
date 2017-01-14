@@ -1,4 +1,11 @@
- //<>//
+//============================================================================== //<>//
+// AreYouWorthy - Taking gaming to the next level
+//
+// Whosoever plays this game, if he or she be worthy, shall be awarded the wisdom of RPi
+// 
+// by Dr. Pineda
+//==============================================================================
+
 // Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with user marker (x) and 2=cell with computer marker (o)
 int[][] board = { {0, 0, 0}, 
   {0, 0, 0}, 
@@ -56,12 +63,10 @@ void draw () {
   if (whoseTurn == computer && !gameOver) {
     computerPlay();
 
-    // Check if game is over or if we should continue playing. 
-    // Game is over if:
-    // - Either the user or the computer has three in a row
-    // - All the cells have markers in them but nobody has three in a row (=draw)
-    if (win) {
-      GameOver
+    // After the computer has played its turn check if game is over. Assuming that the user always starts the game, the only option for a game over after a computer move is that the computer has three in a row (i.e. computer wins) 
+    if (gameOver) {
+      winner = computer;
+      finishGame();
     }
     
   } else if (whoseTurn == user && !gameOver) {
