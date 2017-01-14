@@ -1,21 +1,25 @@
 //============================================================================== //<>//
 // AreYouWorthy - Taking gaming to the next level
 //
-// Whosoever plays this game, if he or she be worthy, shall be awarded the wisdom of RPi
+// Whosoever plays this game, if he or she be worthy, shall be awarded the 
+// wisdom of RPi
 // 
 // by Dr. Pineda
 //==============================================================================
 
-// Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with user marker (x) and 2=cell with computer marker (o)
+// Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with 
+// user marker (x) and 2=cell with computer marker (o)
 int[][] board = { {0, 0, 0}, 
   {0, 0, 0}, 
   {0, 0, 0} };
 int computer = 0;
 int user = 1;
+int draw = 3; // Nobody wins
 int whoseTurn = user;
 boolean overEmptyCell = false;
 boolean gameOver = false;
 int winner;
+int n = 0; // Keeps track of the numer of markers on the board
 
 // Dimensions of canvas
 int w = 400;
@@ -62,8 +66,12 @@ void draw () {
 
   if (whoseTurn == computer && !gameOver) {
     computerPlay();
+    n++;
 
-    // After the computer has played its turn check if game is over. Assuming that the user always starts the game, the only option for a game over after a computer move is that the computer has three in a row (i.e. computer wins) 
+    // After the computer has played its turn check if game is over. Assuming 
+    // that the user always starts the game, the only option for a game over 
+    // after a computer move is that the computer has three in a row (i.e. 
+    // computer wins).
     if (gameOver) {
       winner = computer;
       finishGame();
@@ -71,9 +79,37 @@ void draw () {
     
   } else if (whoseTurn == user && !gameOver) {
     userPlay();
+    n++;
+    
+    // After the user's turn the game is over if:
+    // 1) The user has three in a row (the human wins)
+    // 2) The board is full (a total of nine markers) and user does not have three in a row (draw)
+    
+    // For option 1...
+    // ... there are 8 possible ways the user can have three in a row: 
+    // 1. Left column
+    // 2. Middle column
+    // 3. Right column
+    // 4. Top row
+    // 5. Middle row
+    // 6. Bottom row
+    // 7. Left diagonal (going from top left corner to bottom right corner)
+    // 8. Right diagonal (going from top right corner to bottom left corner)
+    
+    // Check if user has anyone of these outcomes
+    if ((board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1) || 
+        (board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1) ||
+        (board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1) ||
+        (board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1) ||
+        (board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1) ||
+        (board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1) ||
+        (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1) ||
+        (board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 1)) {
+          gameOver = true;
+          winner = user;
+    {
+  } else if (n == 9) {
+    gameOver = true;
+    winner = draw;
   }
-  // Check if game is over or if we should continue playing. 
-  // Game is over if:
-  // - Either the user or the computer has three in a row
-  // - All the cells have markers in them but nobody has three in a row (=draw)
 }

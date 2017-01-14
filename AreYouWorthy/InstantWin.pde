@@ -1,6 +1,6 @@
 // Search board for an instant win for the computer, i.e. two markers already exists in a given dimension and the third cell is empty. 
 
-// Three possibilities...
+// Three combinations with a total of 8 possibilities...
 // Option 1     Option 2     Option 3
 // o            o            -
 // o        or  -        or  o
