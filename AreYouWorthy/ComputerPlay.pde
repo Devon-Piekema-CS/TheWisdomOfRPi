@@ -34,7 +34,7 @@ void computerPlay() {
 
         // Place marker in the selected cell
         int m = 0;
-        for (int i = 0; i < 3; i++) {
+        for (i = 0; i < 3; i++) {
           for (int j = 0; j < 3; j++) {
             if (board[i][j] == 0) m++;
             if (n == m) {

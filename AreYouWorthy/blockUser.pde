@@ -27,7 +27,7 @@ void blockUser () {
     }  
 
     // Loop across board from top to bottom and check the three possible options 
-    for (int i = 0; i < 3; i = i+1) {    
+    for (i = 0; i < 3; i = i+1) {    
       // Option 1
       if (board[0][i] == 1 && board[1][i] == 1 && board[2][i] == 0) {
         board[i][2] = 2;
