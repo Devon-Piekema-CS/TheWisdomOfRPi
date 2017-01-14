@@ -81,6 +81,7 @@ void mousePressed() {
   if (overEmptyCell && whoseTurn == user && !gameOver) { 
     //println("************************************************Mouse pressed\n");
     board[x][y] = 1;
+    n++;
     whoseTurn = computer; // The computer is next up
     println("User's turn!\n");
   }

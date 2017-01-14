@@ -3,7 +3,7 @@ void computerPlay() {
   // 1. Check if winning move is possible (have two markers along one of the eight dimensions
   instantWin();
 
-  if (!win) {
+  if (!gameOver) {
     // 2. Check if winning move is possible for opponent (if it is -> block)
     blockUser();
 
@@ -13,6 +13,7 @@ void computerPlay() {
     if (whoseTurn == computer) {
       if (board[1][1] == 0) {
         board[1][1] = 2;
+        n++;
         whoseTurn = user;
       }
     }
@@ -29,16 +30,17 @@ void computerPlay() {
         }
 
         // Pick which empty cell will get a marker
-        int n = int(random(nEmptyCells));
-        n++;
+        int nCell = int(random(nEmptyCells));
+        nCell++;
 
         // Place marker in the selected cell
-        int m = 0;
+        int counter = 0;
         for (i = 0; i < 3; i++) {
           for (int j = 0; j < 3; j++) {
-            if (board[i][j] == 0) m++;
-            if (n == m) {
+            if (board[i][j] == 0) counter++;
+            if (nCell == counter) {
               board[i][j] = 2;
+              n++;
               whoseTurn = user;
             }
           }

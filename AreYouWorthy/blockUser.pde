@@ -13,16 +13,19 @@ void blockUser () {
     // Option 1
     if (board[i][0] == 1 && board[i][1] == 1 && board[i][2] == 0) {
       board[i][2] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     } 
     // Option 2
     else if (board[i][0] == 1 && board[i][1] == 0 && board[i][2] == 1) {
       board[i][1] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     }
     // Option 3
     else if (board[i][0] == 0 && board[i][1] == 1 && board[i][2] == 1) {
       board[i][0] = 2;
+      n++;
       whoseTurn = user; // The user is next up    }
     }  
 
@@ -31,16 +34,19 @@ void blockUser () {
       // Option 1
       if (board[0][i] == 1 && board[1][i] == 1 && board[2][i] == 0) {
         board[i][2] = 2;
+        n++;
         whoseTurn = user; // The user is next up
       } 
       // Option 2
       else if (board[i][0] == 1 && board[i][1] == 0 && board[i][2] == 1) {
         board[i][1] = 2;
+        n++;
         whoseTurn = user; // The user is next up
       }
       // Option 3
       else if (board[i][0] == 0 && board[i][1] == 1 && board[i][2] == 1) {
         board[i][0] = 2;
+        n++;
         whoseTurn = user; // The user is next up
       }
     }  
@@ -50,16 +56,19 @@ void blockUser () {
     // Option 1
     if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 0) {
       board[2][2] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     } 
     // Option 2
     else if (board[0][0] == 1 && board[1][1] == 0 && board[2][2] == 1) {
       board[1][1] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     }
     // Option 3
     else if (board[0][0] == 0 && board[1][1] == 1 && board[2][2] == 1) {
       board[0][0] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     }
 
@@ -68,16 +77,19 @@ void blockUser () {
     // Option 1
     if (board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 0) {
       board[0][2] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     } 
     // Option 2
     else if (board[2][0] == 1 && board[1][1] == 0 && board[0][2] == 1) {
       board[1][1] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     }
     // Option 3
     else if (board[2][0] == 0 && board[1][1] == 1 && board[0][2] == 1) {
       board[2][0] = 2;
+      n++;
       whoseTurn = user; // The user is next up
     }
   }
