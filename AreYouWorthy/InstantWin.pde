@@ -1,5 +1,4 @@
 // Search board for an instant win for the computer, i.e. two markers already exists in a given dimension and the third cell is empty. 
-// Function returns the coordinates of avaliable cell. (-1,-1) if no cell is availiable
 
 // Three possibilities...
 // Option 1     Option 2     Option 3
@@ -7,9 +6,7 @@
 // o        or  -        or  o
 // -            o            o
 
-boolean instantWin() {
-
-  boolean win = false;
+void instantWin() {
   
   // Loop across board from left to right and check the three possible options 
   for (int i = 0; i < 3; i = i+1) {    
@@ -84,6 +81,4 @@ boolean instantWin() {
     board[2][0] = 2;
     win = true;
   }
-
-  return(win);
 }

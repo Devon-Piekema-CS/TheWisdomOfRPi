@@ -9,6 +9,7 @@ int whoseTurn = user;
 boolean overEmptyCell = false;
 boolean gameOver = false;
 int winner;
+boolean win = false;
 
 // Dimensions of canvas
 int w = 400;
