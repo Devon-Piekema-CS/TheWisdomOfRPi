@@ -9,7 +9,6 @@ int whoseTurn = user;
 boolean overEmptyCell = false;
 boolean gameOver = false;
 int winner;
-boolean win = false;
 
 // Dimensions of canvas
 int w = 400;
@@ -61,6 +60,10 @@ void draw () {
     // Game is over if:
     // - Either the user or the computer has three in a row
     // - All the cells have markers in them but nobody has three in a row (=draw)
+    if (win) {
+      GameOver
+    }
+    
   } else if (whoseTurn == user && !gameOver) {
     userPlay();
   }
