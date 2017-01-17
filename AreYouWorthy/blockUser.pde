@@ -15,94 +15,100 @@ void blockUser () {
       board[x][2] = 2;
       nMarker++;
       whoseTurn = user; // The user is next up
-      println("Blocking at x:", x, ", y:2 (110 vertically)");
+      println("Blocking at x:", x, ", y:2 (110 down)");
     } // if
     // Option 2 - checking col for 101 (vertically)
     else if (board[x][0] == 1 && board[x][1] == 0 && board[x][2] == 1) {
       board[x][1] = 2;
       nMarker++;
       whoseTurn = user; // The user is next up
-      println("Blocking at x:", x, ", y:1 (101 vertically)");
+      println("Blocking at x:", x, ", y:1 (101 down)");
     } // if
     // Option 3 - checking col for 011 (vertically)
     else if (board[x][0] == 0 && board[x][1] == 1 && board[x][2] == 1) {
       board[x][0] = 2;
       nMarker++;
       whoseTurn = user; // The user is next up 
-      println("Blocking at x:", x, ", y:0 (011 vertically)");
+      println("Blocking at x:", x, ", y:0 (011 down)");
     } // if
   } // for
 
-  // Loop across board from top to bottom and check the three possible options 
-  for (int y=0; y<3; y++) {  
-    // Option 1 - checking row for 110  
-    if (board[0][y] == 1 && board[1][y] == 1 && board[2][y] == 0) {
-      board[2][y] = 2;
-      nMarker++;
-      whoseTurn = user; // The user is next up
-      println("Blocking at x:2, y:", y, "(110 row)");
-    } 
-    // Option 2 - checking row for 101
-    else if (board[0][y] == 1 && board[1][y] == 0 && board[2][y] == 1) {
-      board[1][y] = 2;
-      nMarker++;
-      whoseTurn = user; // The user is next up
-      println("Blocking at x:1, y:", y,"(101 row)");
-    }
-    // Option 3 - checking row for 011
-    else if (board[0][y] == 0 && board[1][y] == 1 && board[2][y] == 1) {
-      board[0][y] = 2;
-      nMarker++;
-      whoseTurn = user; // The user is next up
-      println("Blocking at x:0, y:", y,"011 row");
-    }
-  } // for  
+  if (whoseTurn == computer) {
+    // Loop across board from top to bottom and check the three possible options 
+    for (int y=0; y<3; y++) {  
+      // Option 1 - checking row for 110  
+      if (board[0][y] == 1 && board[1][y] == 1 && board[2][y] == 0) {
+        board[2][y] = 2;
+        nMarker++;
+        whoseTurn = user; // The user is next up
+        println("Blocking at x:2, y:", y, "(110 row)");
+      } 
+      // Option 2 - checking row for 101
+      else if (board[0][y] == 1 && board[1][y] == 0 && board[2][y] == 1) {
+        board[1][y] = 2;
+        nMarker++;
+        whoseTurn = user; // The user is next up
+        println("Blocking at x:1, y:", y, "(101 row)");
+      }
+      // Option 3 - checking row for 011
+      else if (board[0][y] == 0 && board[1][y] == 1 && board[2][y] == 1) {
+        board[0][y] = 2;
+        nMarker++;
+        whoseTurn = user; // The user is next up
+        println("Blocking at x:0, y:", y, "011 row");
+      }
+    } // for
+  }
 
   // Left diagonal
   //
   // Option 1
-  if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 0) {
-    board[2][2] = 2;
-    nMarker++;
-    whoseTurn = user; // The user is next up
-    println("Blocking at x:2, y:2 (left diagonal 110)");
-  } 
-  // Option 2
-  else if (board[0][0] == 1 && board[1][1] == 0 && board[2][2] == 1) {
-    board[1][1] = 2;
-    nMarker++;
-    whoseTurn = user; // The user is next up
-    println("Blocking at x:1, y:1 (left diagonal 111)");
-  }
-  // Option 3
-  else if (board[0][0] == 0 && board[1][1] == 1 && board[2][2] == 1) {
-    board[0][0] = 2;
-    nMarker++;
-    whoseTurn = user; // The user is next up
-    println("Blocking at x:0, y:0 (left diagonal 011)");
+  if  (whoseTurn == computer) {
+    if (board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 0) {
+      board[2][2] = 2;
+      nMarker++;
+      whoseTurn = user; // The user is next up
+      println("Blocking at x:2, y:2 (left diagonal 110)");
+    } 
+    // Option 2
+    else if (board[0][0] == 1 && board[1][1] == 0 && board[2][2] == 1) {
+      board[1][1] = 2;
+      nMarker++;
+      whoseTurn = user; // The user is next up
+      println("Blocking at x:1, y:1 (left diagonal 111)");
+    }
+    // Option 3
+    else if (board[0][0] == 0 && board[1][1] == 1 && board[2][2] == 1) {
+      board[0][0] = 2;
+      nMarker++;
+      whoseTurn = user; // The user is next up
+      println("Blocking at x:0, y:0 (left diagonal 011)");
+    }
   }
 
-  // Right diagonal
-  //
-  // Option 1
-  if (board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 0) {
-    board[0][2] = 2;
-    nMarker++;
-    whoseTurn = user; // The user is next up
-    println("Blocking at x:0, y:2 (right diagonal 110)");
-  } 
-  // Option 2
-  else if (board[2][0] == 1 && board[1][1] == 0 && board[0][2] == 1) {
-    board[1][1] = 2;
-    nMarker++;
-    whoseTurn = user; // The user is next up
-    println("Blocking at x:1, y:1 (right diagonal 101)");
-  }
-  // Option 3
-  else if (board[2][0] == 0 && board[1][1] == 1 && board[0][2] == 1) {
-    board[2][0] = 2;
-    nMarker++;
-    whoseTurn = user; // The user is next up
-    println("Blocking at x:2, y:0 (right diagonal 011)");
+  if (whoseTurn == computer) {
+    // Right diagonal
+    //
+    // Option 1
+    if (board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 0) {
+      board[0][2] = 2;
+      nMarker++;
+      whoseTurn = user; // The user is next up
+      println("Blocking at x:0, y:2 (right diagonal 110)");
+    } 
+    // Option 2
+    else if (board[2][0] == 1 && board[1][1] == 0 && board[0][2] == 1) {
+      board[1][1] = 2;
+      nMarker++;
+      whoseTurn = user; // The user is next up
+      println("Blocking at x:1, y:1 (right diagonal 101)");
+    }
+    // Option 3
+    else if (board[2][0] == 0 && board[1][1] == 1 && board[0][2] == 1) {
+      board[2][0] = 2;
+      nMarker++;
+      whoseTurn = user; // The user is next up
+      println("Blocking at x:2, y:0 (right diagonal 011)");
+    }
   }
 }
