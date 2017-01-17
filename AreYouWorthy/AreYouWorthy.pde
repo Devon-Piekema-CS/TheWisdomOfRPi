@@ -55,7 +55,7 @@ void draw () {
   // Draw markers
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
-      int x = i*width/3 + width/6 ;
+      int x = i*width/3 + width/6;
       int y = j*height/3 + height/6;
       textSize(75);
       textAlign(CENTER, CENTER);
@@ -66,8 +66,7 @@ void draw () {
   }
 
   if (gameOver) {
-    fill(0, 0, 0);
-    text("Game Over", width/2, height/2);
+    finishGame();
   }
 
   if (whoseTurn == computer && !gameOver) {
