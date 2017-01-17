@@ -47,6 +47,7 @@ void draw () {
 
   // Draw grid
   stroke(0);
+  strokeWeight(4);
   line(L, 0, L, h); // Left vetical line
   line(R, 0, R, h); // Right vertical line
   line(0, T, w, T); // Top horizontal line
