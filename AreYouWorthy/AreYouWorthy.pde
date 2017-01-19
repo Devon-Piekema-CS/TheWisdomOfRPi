@@ -48,20 +48,20 @@ void setup () {
   background(255);
   frameRate(10);
 
-font = createFont("Comfortaa", 32);
-textFont(font);
+  font = createFont("Comfortaa", 32);
+  textFont(font);
 }
 
 void draw () {
 
   if (showSplashScreen) {
-    background(57,33,134);
-    stroke(239,170,4);
+    background(57, 33, 134); // QE Purple
+    stroke(239, 170, 4); // QE Gold
     noFill();
     strokeWeight(6);
     rect(10, 10, width-20, height-20, 10, 10, 10, 10);
 
-    fill(239,170,4);
+    fill(239, 170, 4);
     textSize(80);
     textAlign(CENTER, CENTER);
     text("The Wisdom of RPi", width/2, height*.25);
@@ -72,10 +72,10 @@ void draw () {
     textSize(30);
     text("Touch screen to start...", width/2, height*.75);
   } else {
-     background(255);
-    
+    background(57, 33, 134, alpha);
+
     // Draw grid
-    stroke(0, alpha);
+    stroke(239, 170, 4, alpha);
     strokeWeight(4);
     line(L, 0, L, h); // Left vetical line
     line(R, 0, R, h); // Right vertical line
@@ -87,9 +87,9 @@ void draw () {
       for (int j = 0; j < 3; j++) {
         int x = i*width/3 + width/6;
         int y = j*height/3 + height/6;
-        textSize(75);
+        textSize(100);
         textAlign(CENTER, CENTER);
-        fill(0, alpha);
+        fill(239, 170, 4, alpha);
         if (board[i][j] == 1) text("x", x, y);
         else if (board[i][j] == 2) text("o", x, y);
       }

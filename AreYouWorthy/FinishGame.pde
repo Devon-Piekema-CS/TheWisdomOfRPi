@@ -67,7 +67,7 @@ void finishGame() {
   // Draw line to indicate winning streak
   if (winner == user || winner == computer) {
     stroke(255, 0, 0, alpha);
-    strokeWeight(4); 
+    strokeWeight(6); 
     line(x1, y1, x2, y2);
   }
 
@@ -75,12 +75,15 @@ void finishGame() {
   if (alpha1 < 255) alpha1 = alpha1 + 10;
   fill(0, 0, 0, alpha1);
   text("Game Over", width/2, height/3);
-  
-  if(winner == user) {
+
+  if (winner == user) {
+    background(0, 255, 0, alpha1);
     text("You win - RPi defeated", width/2, height*2/3);
   } else if (winner == computer) {
+    background(255, 0, 0, alpha1);
     text("You loose - RPi wins", width/2, height*2/3);
   } else {
+    background(0, 0, 255, alpha1);
     text("Draw", width/2, height*2/3);
   }
 }
