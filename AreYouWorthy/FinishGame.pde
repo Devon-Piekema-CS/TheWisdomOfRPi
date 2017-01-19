@@ -8,9 +8,11 @@
 // - Three horizonal possibilities (top, middle, bottom)
 // - Three vertical possibilities (left, centre, right)
 // - Two diagonal possibilities (left and right diagonal)
-// Check which of these comibations has occured and draw a line through them to indicate the winning markers
+// Check which of these comibations has occured and draw a line through them to 
+// indicate the winning markers
 
-// Declare variables for the starting and ending coordinates of then line that will indicate the winning markers
+// Declare variables for the starting and ending coordinates of then line that will 
+// indicate the winning markers
 int x1;
 int y1;
 int x2;
@@ -64,11 +66,21 @@ void finishGame() {
 
   // Draw line to indicate winning streak
   if (winner == user || winner == computer) {
-    stroke(255, 0, 0);
+    stroke(255, 0, 0, alpha);
     strokeWeight(4); 
     line(x1, y1, x2, y2);
   }
 
-  //  fill(0, 0, 0);
-  //  text("Game Over", width/2, height/2);
+  if (alpha>0) alpha = alpha - 10;
+  if (alpha1 < 255) alpha1 = alpha1 + 10;
+  fill(0, 0, 0, alpha1);
+  text("Game Over", width/2, height/3);
+  
+  if(winner == user) {
+    text("You win - RPi defeated", width/2, height*2/3);
+  } else if (winner == computer) {
+    text("You loose - RPi wins", width/2, height*2/3);
+  } else {
+    text("Draw", width/2, height*2/3);
+  }
 }

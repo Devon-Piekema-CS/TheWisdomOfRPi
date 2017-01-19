@@ -79,6 +79,8 @@ void userPlay() {
 }
 
 void mousePressed() {
+  if (showSplashScreen) showSplashScreen =false;
+    
   if (overEmptyCell && whoseTurn == user && !gameOver) { 
     //println("************************************************Mouse pressed\n");
     board[x][y] = 1;
