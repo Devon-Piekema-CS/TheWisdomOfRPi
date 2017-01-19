@@ -78,10 +78,10 @@ void finishGame() {
 
   if (winner == user) {
     background(0, 255, 0, alpha1);
-    text("You win - RPi defeated", width/2, height*2/3);
+    text("Your are worthy of RPi wisdom", width/2, height*2/3);
   } else if (winner == computer) {
     background(255, 0, 0, alpha1);
-    text("You loose - RPi wins", width/2, height*2/3);
+    text("Your are unworthy of RPi wisdom", width/2, height*2/3);
   } else {
     background(0, 0, 255, alpha1);
     text("Draw", width/2, height*2/3);
