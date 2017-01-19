@@ -66,6 +66,8 @@ void draw () {
     }
   }
 
+  checkUserWin();
+
   if (gameOver) {
     finishGame();
   }
@@ -82,6 +84,13 @@ void draw () {
       finishGame();
     }
   } else if (whoseTurn == user && !gameOver) {
-    userPlay();    
-  } 
+    userPlay();    //<>//
+    
+    // At this point the user could have won..., but why are we not checking if he/she has won? 
+    // Because: "An event is a polite interruption of the normal flow of a program. Key presses 
+    // and mouse movements are stored until the end of draw(), where they can take action that 
+    // won’t disturb drawing that’s currently in progress.". Hence we are checking it at the 
+    // beginning of the draw() function.
+
+}
 }
