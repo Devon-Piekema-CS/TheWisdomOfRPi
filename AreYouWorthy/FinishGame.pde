@@ -72,24 +72,27 @@ void finishGame() {
   }
 
   // Delay before displaying Game Over splash screen
-  if (millis() > startTime+2000) {
+  if (millis() > startTime+1000) {
 
     // Game over splash message
-    background(57, 33, 134); // QE Purple
+    //background(57, 33, 134, 150); // QE Purple
     stroke(239, 170, 4); // QE Gold
-    fill(57, 33, 134);
+    fill(57, 33, 134, 255); // QE Purple
     strokeWeight(6);
     rect(100, 100, width-200, height-200, 10, 10, 10, 10);
 
     // Display final verdict - is the player worthy or unworthy
     textSize(25);
-    stroke(239, 170, 4); // QE Gold
+    fill(239, 170, 4); // QE Gold
     if (winner == user) {
       text("You are victorious and are worthy of RPi wisdom", 100, 100, width-250, height-250);
+      text("Stand by and you shall be rewarded...", 100, 175, width-250, height-250);
     } else if (winner == computer) {
-      text("You have been defeated and are unworthy of RPi wisdom", 100, 100, width-250, height-250);
+      text("You have been defeated.", 100, 100, width-250, height-250);
+      text("Carry on with your practice you must.", 100, 175, width-250, height-250);
     } else {
-      text("You are not victorious and are unworthy of RPi wisdom", 100, 100, width-250, height-250);
+      text("You are not victorious.", 100, 100, width-250, height-250);
+      text("Carry on with your practice you must.", 100, 175, width-250, height-250);
     }
   }
 }
