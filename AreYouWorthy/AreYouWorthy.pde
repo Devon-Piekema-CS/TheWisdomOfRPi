@@ -42,6 +42,7 @@ int y;
 boolean showSplashScreen = true; 
 
 PFont font;
+int startTime;
 
 void setup () {
   size(800, 480);
@@ -111,10 +112,13 @@ void draw () {
       if (gameOver) {
         winner = computer;
         finishGame();
+        startTime = millis();
       }
     } else if (whoseTurn == user && !gameOver) {
       userPlay();   
 
+      startTime = millis();
+      
       // At this point the user could have won..., but why are we not checking if he/she has won? 
       // Because: "An event is a polite interruption of the normal flow of a program. Key presses 
       // and mouse movements are stored until the end of draw(), where they can take action that 

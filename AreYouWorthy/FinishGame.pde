@@ -64,26 +64,32 @@ void finishGame() {
     else winner = computer;
   }
 
-  // Draw line to indicate winning streak
+  // Draw red line to indicate winning streak
   if (winner == user || winner == computer) {
     stroke(255, 0, 0, alpha);
     strokeWeight(6); 
     line(x1, y1, x2, y2);
   }
 
-  if (alpha>0) alpha = alpha - 10;
-  if (alpha1 < 255) alpha1 = alpha1 + 10;
-  fill(0, 0, 0, alpha1);
-  text("Game Over", width/2, height/3);
+  // Delay before displaying Game Over splash screen
+  if (millis() > startTime+2000) {
 
-  if (winner == user) {
-    background(0, 255, 0, alpha1);
-    text("Your are worthy of RPi wisdom", width/2, height*2/3);
-  } else if (winner == computer) {
-    background(255, 0, 0, alpha1);
-    text("Your are unworthy of RPi wisdom", width/2, height*2/3);
-  } else {
-    background(0, 0, 255, alpha1);
-    text("Draw", width/2, height*2/3);
+    // Game over splash message
+    background(57, 33, 134); // QE Purple
+    stroke(239, 170, 4); // QE Gold
+    fill(57, 33, 134);
+    strokeWeight(6);
+    rect(100, 100, width-200, height-200, 10, 10, 10, 10);
+
+    // Display final verdict - is the player worthy or unworthy
+    textSize(25);
+    stroke(239, 170, 4); // QE Gold
+    if (winner == user) {
+      text("You are victorious and are worthy of RPi wisdom", 100, 100, width-250, height-250);
+    } else if (winner == computer) {
+      text("You have been defeated and are unworthy of RPi wisdom", 100, 100, width-250, height-250);
+    } else {
+      text("You are not victorious and are unworthy of RPi wisdom", 100, 100, width-250, height-250);
+    }
   }
 }
