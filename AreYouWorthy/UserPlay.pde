@@ -79,7 +79,10 @@ void userPlay() {
 }
 
 void mousePressed() {
-  if (showSplashScreen) showSplashScreen =false;
+  if (showSplashScreen) {
+    showSplashScreen = false;
+    showWhoAreYouScreen = true;
+  }
     
   if (overEmptyCell && whoseTurn == user && !gameOver) { 
     //println("************************************************Mouse pressed\n");

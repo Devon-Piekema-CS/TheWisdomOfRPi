@@ -40,6 +40,8 @@ int x;
 int y;
 
 boolean showSplashScreen = true; 
+boolean showWhoAreYouScreen = false;
+boolean showHowDoYouFeelScreen = false;
 
 PFont font;
 int startTime;
@@ -72,6 +74,8 @@ void draw () {
 
     textSize(30);
     text("Touch screen to start...", width/2, height*.75);
+  } else if (showWhoAreYouScreen) {
+    whoAreYouScreen();
   } else {
     background(57, 33, 134, alpha);
 
