@@ -82,17 +82,23 @@ void finishGame() {
     rect(100, 100, width-200, height-200, 10, 10, 10, 10);
 
     // Display final verdict - is the player worthy or unworthy
-    textSize(25);
     fill(239, 170, 4); // QE Gold
     if (winner == user) {
-      text("You are victorious and are worthy of RPi wisdom", 100, 100, width-250, height-250);
-      text("Stand by - wisdom is being dispensed...", 100, 175, width-250, height-250);
+      textSize(40);
+      text("You are victorious", 100, 100, width-250, height-250);
+      textSize(25);
+      text("Stand by - wisdom is being dispensed", 100, 175, width-250, height-250);
+      if (updateWisdom) generateWisdom();
     } else if (winner == computer) {
-      text("You have been defeated.", 100, 100, width-250, height-250);
-      text("Carry on with your practice you must.", 100, 175, width-250, height-250);
+      textSize(40);
+      text("You have been defeated", 100, 100, width-250, height-250);
+      textSize(25);
+      text("Carry on with your practice you must", 100, 175, width-250, height-250);
     } else {
-      text("You are not victorious.", 100, 100, width-250, height-250);
-      text("Carry on with your practice you must.", 100, 175, width-250, height-250);
+      textSize(40);
+      text("You are not victorious", 100, 100, width-250, height-250);
+      textSize(25);
+      text("Carry on with your practice you must", 100, 175, width-250, height-250);
     }
   }
 }

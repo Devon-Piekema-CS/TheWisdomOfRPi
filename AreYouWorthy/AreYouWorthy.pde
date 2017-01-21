@@ -1,4 +1,4 @@
-//============================================================================== //<>// //<>//
+//============================================================================== //<>// //<>// //<>// //<>//
 // AreYouWorthy - Taking gaming to the next level
 //
 // Whosoever plays this game, if he or she be worthy, shall be awarded the 
@@ -6,6 +6,8 @@
 // 
 // by Dr. Pineda
 //==============================================================================
+
+debugMode = true; 
 
 // Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with 
 // user marker (x) and 2=cell with computer marker (o)
@@ -47,12 +49,14 @@ boolean showHowDoYouFeelScreen = false;
 boolean updateWhoAreYou = true;
 String[] choices = new String[10]; 
 
+boolean updateWisdom = true;
+
 PFont font;
 int startTime;
 
 void setup () {
-  //size(800, 480);
-  fullScreen();
+  size(800, 480); // Enable on laptop
+  // fullScreen(); // Enable on RPi
   background(255);
   frameRate(30);
 
@@ -79,7 +83,7 @@ void draw () {
 
     textSize(30);
     text("Touch screen to start...", width/2, height*.75);
-  } else if (showWhoAreYouScreen) {
+  } else if (showWhoAreYouScreen) { // Disabled for now
    // whoAreYouScreen();
    showWhoAreYouScreen = false;
   } else {
