@@ -86,7 +86,7 @@ void finishGame() {
     fill(239, 170, 4); // QE Gold
     if (winner == user) {
       text("You are victorious and are worthy of RPi wisdom", 100, 100, width-250, height-250);
-      text("Stand by and you shall be rewarded...", 100, 175, width-250, height-250);
+      text("Stand by - wisdom is being dispensed...", 100, 175, width-250, height-250);
     } else if (winner == computer) {
       text("You have been defeated.", 100, 100, width-250, height-250);
       text("Carry on with your practice you must.", 100, 175, width-250, height-250);

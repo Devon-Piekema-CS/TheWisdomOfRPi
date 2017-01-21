@@ -51,9 +51,10 @@ PFont font;
 int startTime;
 
 void setup () {
-  size(800, 480);
+  //size(800, 480);
+  fullScreen();
   background(255);
-  frameRate(10);
+  frameRate(30);
 
   font = createFont("Comfortaa", 32);
   textFont(font);
@@ -79,7 +80,8 @@ void draw () {
     textSize(30);
     text("Touch screen to start...", width/2, height*.75);
   } else if (showWhoAreYouScreen) {
-    whoAreYouScreen();
+   // whoAreYouScreen();
+   showWhoAreYouScreen = false;
   } else {
     background(57, 33, 134, alpha);
 
