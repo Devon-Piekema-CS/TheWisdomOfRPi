@@ -78,7 +78,7 @@ void userPlay() {
   
 }
 
-void mousePressed() {
+void mouseReleased() {
   if (showSplashScreen) {
     showSplashScreen = false;
     showWhoAreYouScreen = true;
