@@ -43,6 +43,10 @@ boolean showSplashScreen = true;
 boolean showWhoAreYouScreen = false;
 boolean showHowDoYouFeelScreen = false;
 
+// Variables for whoAreYouScreen
+boolean updateWhoAreYou = true;
+String[] choices = new String[10]; 
+
 PFont font;
 int startTime;
 
