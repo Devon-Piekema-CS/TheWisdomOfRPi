@@ -1,14 +1,36 @@
 // Generate wisdom and save to file to have Python take over... //<>//
 void generateWisdom() {
-  String wisdom[] = loadStrings("wisdom.txt");
+  String[] wisdom = loadStrings("wisdom.txt");
   println("Loaded ", wisdom.length, " lines of wisdom");
+  //if (debugMode) {
+  //  for (int i=0; i<wisdom.length; i++) {
+  //    println(wisdom[i]);
+  //  }
+  //}
+
+  int i = int(random(wisdom.length));  
+  updateWisdom = false;
+
+  // Display debugging info
   if (debugMode) {
-    for (int i==0; i<wisdom.length; i++) {
-      printl(wisdom[i]);
+    for (int j=0; j<wisdom.length; j++){
+    println(j,": ",wisdom[j]);
     }
+    println("You wisdom is #",i,": ", wisdom[i]);
   }
 
-  int index = int(random(wisdom.length));  
-  println(wisdom[index]);
-  updateWisdom = false;
+  // Create string object that will be saved (and later printed using Python)
+  String[] txt = {"********************", 
+    "TheWisdomOfRPi - Taking Gaming to the Next Level", 
+    "Whosoever plays this game, if he or she be worthy, shall be awarded the wisdom of RPi", 
+    " ", 
+    " ", 
+    wisdom[i], 
+    " ", 
+    " ", 
+    " ", 
+    " ", 
+    "TheWisdomOfRPi brought to you by the Computer Science & Robotics Department at Queen Elizabeth High School", 
+    "********************"};
+    saveStrings("toBePrinted.txt", txt);
 }

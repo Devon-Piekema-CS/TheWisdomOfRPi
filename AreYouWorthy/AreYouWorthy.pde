@@ -7,7 +7,7 @@
 // by Dr. Pineda
 //==============================================================================
 
-debugMode = true; 
+boolean debugMode = true; 
 
 // Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with 
 // user marker (x) and 2=cell with computer marker (o)
