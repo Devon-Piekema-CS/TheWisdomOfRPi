@@ -20,17 +20,18 @@ void generateWisdom() {
   }
 
   // Create string object that will be saved (and later printed using Python)
-  String[] txt = {"********************", 
-    "TheWisdomOfRPi - Taking Gaming to the Next Level", 
-    "Whosoever plays this game, if he or she be worthy, shall be awarded the wisdom of RPi", 
+  String[] txt = {"********************",  
     " ", 
     " ", 
     wisdom[i], 
     " ", 
     " ", 
     " ", 
-    " ", 
+    "Visit TheWisdomOfRPi online at github.com/mariopineda/TheWisdomOfRPi ", 
     "TheWisdomOfRPi brought to you by the Computer Science & Robotics Department at Queen Elizabeth High School", 
     "********************"};
     saveStrings("toBePrinted.txt", txt);
+    String[] checkpoint = {"print"};
+    
+    saveStrings("checkpoint.txt", checkpoint);
 }

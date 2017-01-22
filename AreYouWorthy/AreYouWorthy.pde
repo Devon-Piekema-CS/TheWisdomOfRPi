@@ -1,4 +1,4 @@
-//============================================================================== //<>// //<>// //<>// //<>//
+//==============================================================================  //<>// //<>//
 // AreYouWorthy - Taking gaming to the next level
 //
 // Whosoever plays this game, if he or she be worthy, shall be awarded the 
@@ -9,17 +9,19 @@
 
 boolean debugMode = true; 
 
+// Define constants
+int computer = 0;
+int user = 1;
+int draw = 3; // Nobody wins
+boolean overEmptyCell = false;
+boolean gameOver = false;
+
 // Define the tic-tac-toe board as a 2D array where 0=empty cell, 1=cell with 
 // user marker (x) and 2=cell with computer marker (o)
 int[][] board = { {0, 0, 0}, 
   {0, 0, 0}, 
   {0, 0, 0} };
-int computer = 0;
-int user = 1;
-int draw = 3; // Nobody wins
 int whoseTurn = user;
-boolean overEmptyCell = false;
-boolean gameOver = false;
 int winner;
 int nMarker = 0; // Keeps track of the numer of markers on the board
 
@@ -84,8 +86,8 @@ void draw () {
     textSize(30);
     text("Touch screen to start...", width/2, height*.75);
   } else if (showWhoAreYouScreen) { // Disabled for now
-   // whoAreYouScreen();
-   showWhoAreYouScreen = false;
+    // whoAreYouScreen();
+    showWhoAreYouScreen = false;
   } else {
     background(57, 33, 134, alpha);
 
@@ -114,6 +116,32 @@ void draw () {
 
     if (gameOver) {
       finishGame();
+
+      // Check if it is time to restart the game. The game will restart when the 
+      // the contents of the file checkpoint.txt is "play" (without the quotation 
+      // marks) or when 5 seconds have elapsed (in the case of the user being 
+      // defeated or if a tie occurs)
+      if (winner == user) {
+        String checkpoint[] = loadStrings("checkpoint.txt");
+        println("Waiting for checkpoint change (checkpoint=", checkpoint[0], ")"); //<>//
+        if (checkpoint[0] == "play") {
+          println("Detected checkpoint change..., initializing new game");
+
+          // Initialize a new game
+          showSplashScreen = true;
+          gameOver = false;
+          whoseTurn = user;
+          nMarker = 0; // Keeps track of the numer of markers on the board
+          updateWisdom = true;
+
+          // Reset board
+          for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+              board[i][j] = 0;
+            }
+          }
+        }
+      }
     }
 
     if (whoseTurn == computer && !gameOver) {
@@ -132,7 +160,7 @@ void draw () {
       userPlay();   
 
       startTime = millis();
-      
+
       // At this point the user could have won..., but why are we not checking if he/she has won? 
       // Because: "An event is a polite interruption of the normal flow of a program. Key presses 
       // and mouse movements are stored until the end of draw(), where they can take action that 

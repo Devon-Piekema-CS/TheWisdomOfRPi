@@ -1,12 +1,10 @@
 ********************
-TheWisdomOfRPi - Taking Gaming to the Next Level
-Whosoever plays this game, if he or she be worthy, shall be awarded the wisdom of RPi
  
  
-
- 
+Truly wonderful the mind of a child is. - Yoda
  
  
  
+Visit TheWisdomOfRPi online at github.com/mariopineda/TheWisdomOfRPi 
 TheWisdomOfRPi brought to you by the Computer Science & Robotics Department at Queen Elizabeth High School
 ********************
